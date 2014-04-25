@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Minigallery by mikehoh</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Minigallery</h1>
+        <p>jQuery plugin that helps to navigate through your images</p>
+
+        <p class="view"><a href="https://github.com/mikehoh/MiniGallery">View the Project on GitHub <small>mikehoh/MiniGallery</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mikehoh/MiniGallery/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mikehoh/MiniGallery/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mikehoh/MiniGallery">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="minigallery" class="anchor" href="#minigallery"><span class="octicon octicon-link"></span></a>MiniGallery</h1>
+
+<p>jQuery plugin that helps to navigate through your images.</p>
+
+<p>You can click on thumbnails, previous or next links(buttons) and press Ctrl + Left arrow (Rigth arrow).</p>
+
+<p><strong>Instruction</strong></p>
+
+<p>You should prepare small thumbnails and original big images.
+Will be better if you place them to different folders.</p>
+
+<p><strong>Convention.</strong></p>
+
+<ol>
+<li>All images in each set have the same size.</li>
+<li>All images have the same extension.</li>
+<li>Thumbnails begin from a prefix.</li>
+<li>Thumbnail image name = prefix + Big image name</li>
+</ol><p><strong>Using example</strong></p>
+
+<p>In html code:</p>
+
+<pre><code>&lt;div id="image-gallery"&gt;&lt;/div&gt;
+&lt;div id="image-gallery-pager"&gt;
+    &lt;img src="img/small/small-image1.png" width="70" height="70"&gt;
+    &lt;img src="img/small/small-image2.png" width="70" height="70"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>First <code>div</code> is a place where big images will be added.
+The second contains thumbnails. They can be everywhere on a page.</p>
+
+<p>Javascript init:</p>
+
+<pre><code>    $('#image-gallery').minigallery({
+        path: 'img/big', /* Folder with big images, default: 'images' */
+        prefix: 'small-', /* Small images prefix, default: 'small_' */
+        extension: 'png', /* Big images extension, default: 'jpg' */
+        image_width: 500, /* Big images width, default: 500 */
+        image_height: 350, /* Big images height, default: 500 */
+        btn_prev: '.prev', /* Previous button selector, default: '#prev' */
+        btn_next: '.next', /* Next button selector, default: '#next' */
+        active_image: 'active' /* Active image class name, assigned to current thumbnail image */
+    });
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mikehoh">mikehoh</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
