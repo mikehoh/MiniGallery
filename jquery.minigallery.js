@@ -7,7 +7,7 @@
 		var containerStyles = {
 			"position": "relative",
 			"overflow": "hidden"
-		};		
+		};
 		
 		var options = $.extend( {
 			"path": "images",
@@ -27,9 +27,9 @@
 
 		var bigImages = prepareImages($thumbnails, options.prefix, options.extension);
 		
-		this.html( drawImage(bigImages[0], options.path, options.image_width, options.image_height) );
-		$thumbnails.find('img').first().addClass(options.active_image);	
-		
+		this.append( drawImage(bigImages[0], options.path, options.image_width, options.image_height) );
+		$thumbnails.find('img').first().addClass(options.active_image);
+	
 		var that = this;
 		
 		$thumbnails.find('img').on('click', function(){
@@ -48,7 +48,7 @@
 
 			var imgUrl = $(this).attr('src');
 			var img = options.path + '/' + getImageUrl(imgUrl, options.prefix, options.extension);
-			loadImage(img, that, direction, options.image_width, options.image_height);
+			loadImage(img, that, direction, options.image_width, options.image_height, options.loader);
 		});
 		
 		$(options.btn_next).on('click', function(e){
@@ -65,7 +65,7 @@
 			}
 			
 			var img = options.path + "/" + bigImages[newIndex];
-			loadImage(img, that, 'left', options.image_width, options.image_height);
+			loadImage(img, that, 'left', options.image_width, options.image_height, options.loader);
 		});
 		
 		$(options.btn_prev).on('click', function(e){
@@ -82,7 +82,7 @@
 			}
 			
 			var img = options.path + "/" + bigImages[newIndex];
-			loadImage(img, that, 'right', options.image_width, options.image_height);
+			loadImage(img, that, 'right', options.image_width, options.image_height, options.loader);
 		});
 		
 		document.onkeydown = function (e) {
@@ -116,7 +116,10 @@
 		remove_right: function(el) { el.find('img').last().remove(); }						
 	}
 	
-	loadImage = function(img, el, direction, w, h) {
+	loadImage = function(img, el, direction, w, h, loader) {
+		if (checkLoader(loader)) {
+			$(loader).show();
+		}
 		var image = new Image();
 		image.src = img;
 		image.onload = function(){
@@ -130,6 +133,9 @@
 					}						
 				}
 			);
+			if (checkLoader(loader)) {
+				$(loader).hide();
+			}
 		};				
 	}	
 	
@@ -161,5 +167,13 @@
 	findOldIndex = function($els, active) {
 		return $els.find('.' + active).index();
 	}	
+	
+	checkLoader = function(loader) {
+		if (undefined != loader) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 })(jQuery);
