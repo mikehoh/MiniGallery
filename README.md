@@ -40,6 +40,7 @@ Javascript init:
 		image_height: 350, /* Big images height, default: 500 */
 		btn_prev: '.prev', /* Previous button selector, default: '#prev' */
 		btn_next: '.next', /* Next button selector, default: '#next' */
-		active_image: 'active' /* Active image class name, assigned to current thumbnail image */
+		active_image: 'active', /* Active image class name, assigned to current thumbnail image */
+		loader: '#loader' /* Id or class of element with loader image */
 	});
 ```
