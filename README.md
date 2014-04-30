@@ -3,7 +3,8 @@ MiniGallery
 
 jQuery plugin that helps to navigate through your images.
 
-You can click on thumbnails, previous or next links(buttons) and press Ctrl + Left arrow (Rigth arrow).
+You can click on thumbnails, previous or next links(buttons) and press Ctrl + Left arrow (Right arrow).
+Ctrl+Cmd+arrows on mac.
 
 **Instruction**
 
