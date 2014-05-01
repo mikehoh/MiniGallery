@@ -123,10 +123,11 @@
 		var image = new Image();
 		image.src = img;
 		image.onload = function(){
-			var template = drawNewImage(image.src, direction, w, h);
+			var offset = el.find('img').first().width();
+			var template = drawNewImage(image.src, direction, w, h, offset);
 			dFunc['addImage_'+direction](el, template);
 			el.find('img').animate({
-				left: dFunc['move_'+direction]() + "=500"
+				left: dFunc['move_'+direction]() + "=" + offset
 				}, 500, function(){
 					if (el.find('img').length > 1) {
 						dFunc['remove_'+direction](el);
@@ -154,8 +155,8 @@
 		return "<img src='" + path + "/" + file + "' width=" + w + " height=" + h + " />";
 	}
 	
-	drawNewImage = function(src, direction, w, h) {
-		return "<img style='left:" + dFunc['initialOffset_'+direction]() + w + "px' src='" + src + "' width=" + w + " height=" + h + " />";
+	drawNewImage = function(src, direction, w, h, offset) {
+		return "<img style='left:" + dFunc['initialOffset_'+direction]() + offset + "px' src='" + src + "' width=" + w + " height=" + h + " />";
 	}
 	
 	getImageUrl = function(url, prefix, extension) {
